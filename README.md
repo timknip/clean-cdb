@@ -1,12 +1,12 @@
-## clean-cdb
+# clean-cdb
 
 Utility to move older revisions of CDB model files to a backup directory.
 
-# install
+## install
 
     npm install
 
-# run
+## run
 
     coffee src/main.coffee [OPTIONS]
 
