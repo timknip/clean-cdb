@@ -55,9 +55,10 @@ get_models = ->
 
 move_file = (source, target) ->
   new Promise (resolve, reject) ->
-    console.log "moving #{path.basename source}"
+    #console.log "moving #{path.basename source}"
     child = exec "mv #{source} #{target}", (err, stdout, stderr) ->
-      if err then return reject("move failed")
+      if err
+        console.log "error moving #{path.basename source} #{err}"
       resolve()
 
 move_files = (files) ->
