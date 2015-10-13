@@ -28,7 +28,7 @@ get_models = ->
     remove = []
 
     options =
-      root: path.join argv.cdb, 'models/00'
+      root: path.join argv.cdb, 'models'
       fileFilter: '*.mi'
 
     stream = readdirp(options)
