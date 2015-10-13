@@ -13,9 +13,9 @@ argv = require('minimist') process.argv.slice(2),
     log_level: 'l'
     help: 'h'
   default:
-    cdb: "g:/cdb"
-    outdir: "g:/cdb/backup/models"
-    backup: false
+    cdb: "/cdb"
+    outdir: "/cdb/backup/models"
+    backup: true
     log_level: 'INFO'
 
 get_id_and_rev = (model) ->
