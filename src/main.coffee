@@ -3,6 +3,7 @@ path = require 'path'
 readdirp = require 'readdirp'
 mkdirp = require 'mkdirp'
 {exec} = require 'child_process'
+Promise = require 'bluebird'
 
 argv = require('minimist') process.argv.slice(2),
   alias:
@@ -54,14 +55,18 @@ get_models = ->
 
 move_file = (source, target) ->
   new Promise (resolve, reject) ->
+    console.log "moving #{path.basename source}"
     child = exec "mv #{source} #{target}", (err, stdout, stderr) ->
       if err then return reject("move failed")
       resolve()
 
 move_files = (files) ->
+  current = Promise.fulfilled()
   promises = files.map (f) ->
-    target = path.join argv.outdir, path.basename(f)
-    move_file(f, target)
+    current = current.then ->
+      target = path.join argv.outdir, path.basename(f)
+      move_file(f, target)
+    current
   Promise.all(promises)
 
 backup = (files) ->
