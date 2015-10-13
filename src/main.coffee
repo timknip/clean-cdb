@@ -90,5 +90,4 @@ backup = (files) ->
 
 get_models()
 .then (files) ->
-  if argv.backup
-    backup files
+  backup files
