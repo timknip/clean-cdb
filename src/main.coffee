@@ -9,14 +9,27 @@ argv = require('minimist') process.argv.slice(2),
   alias:
     cdb: 'c'
     outdir: 'o'
-    backup: 'b'
-    log_level: 'l'
     help: 'h'
   default:
     cdb: "/cdb"
     outdir: "/cdb/backup/models"
-    backup: true
-    log_level: 'INFO'
+
+help = """
+clean-cdb
+
+Moves older revisions of CDB model files to a backup directory
+
+Usage: coffee src/main.coffee [OPTIONS]
+
+Options
+-c, --cdb [DIR]             Location of CDB, default is /cdb
+-o, --outdir [DIR]          Output directory for backup, default is /cdb/backup/models
+-h, --help                  Shows this help message
+"""
+
+if argv.help
+  console.log help
+  process.exit 0
 
 get_id_and_rev = (model) ->
   match = model.match /^([^_]+)_(\d\d)\.mi/
