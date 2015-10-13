@@ -1,0 +1,32 @@
+{
+  "name" : "clean-cdb",
+  "private": true,
+  "version" : "0.0.1",
+  "description" : "Utility to clean up duplicate models from CDB",
+  "main" : "./lib/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org:timknip/clean-cdb.git"
+  },
+  "dependencies" : {
+    "minimist"          : "0.0.7",
+    "bluebird"          : "1.2.4",
+    "rimraf"            : "2.2.8",
+    "readdirp"          : "1.0.1",
+    "lazy"              : "1.0.11",
+    "mkdirp"            : "0.5.1"
+  },
+  "devDependencies": {
+  },
+  "author": "Tim Knip <tim@floorplanner.com>",
+  "contributors": [
+    {
+      "name": "Tim Knip",
+      "email": "tim@floorplanner.com"
+    }
+  ],
+  "license": "proprietary",
+  "engines": {
+    "node": ">=0.8.14"
+  }
+}
